@@ -1,0 +1,2 @@
+-- legacy migration intentionally disabled; kept only for historical compatibility.
+-- no-op

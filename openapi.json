@@ -1,0 +1,31 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Guia Guararema API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/chat/text": {
+      "post": {
+        "summary": "Processa pergunta textual",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "message": "tem pet shoop perto de mim aberto agora?",
+                "latitude": -23.48,
+                "longitude": -46.04,
+                "when": "now"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/chat/audio": {"post": {"summary": "Processa áudio"}},
+    "/api/v1/chat/location": {"post": {"summary": "Busca por proximidade"}},
+    "/api/v1/admin/ingest/run": {"post": {"summary": "Executa ingestão manual"}},
+    "/api/v1/health": {"get": {"summary": "Health da aplicação"}}
+  }
+}
