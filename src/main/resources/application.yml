@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: guia-guararema-api
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:guia_guararema}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+APP_ENV: ${APP_ENV:dev}
+ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:*}
+API_KEY_ADMIN: ${API_KEY_ADMIN:dev-admin-key}
+LLM_PROVIDER: ${LLM_PROVIDER:mock}
+LLM_API_KEY: ${LLM_API_KEY:}
+LLM_MODEL: ${LLM_MODEL:gpt-mini}
+CACHE_DEFAULT_TTL_SECONDS: ${CACHE_DEFAULT_TTL_SECONDS:120}
+CACHE_JITTER_SECONDS: ${CACHE_JITTER_SECONDS:15}
+INGEST_CRON: ${INGEST_CRON:0 0/30 * * * *}
